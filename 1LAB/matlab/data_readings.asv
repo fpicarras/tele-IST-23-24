@@ -1,0 +1,29 @@
+clear 
+
+filename = 'L+R.dat';
+
+fid = fopen(filename, 'rb');
+
+data = fread(fid, 'float32');
+
+fclose(fid);
+
+filename = 'L-R.dat';
+
+fid = fopen(filename, 'rb');
+
+data2 = fread(fid, 'float32');
+
+fclose(fid);
+
+samp_rate = 125000;
+
+t = (0:(length(data)-1)) /samp_rate;
+
+plot(t(8000:8500), data(8000:8500), 'DisplayName', 'R+L')
+hold on
+plot(t(8000:8500), data2(8000:8500), 'DisplayName', 'R-L')
+
+cross_corr = xcorr(data(8000:8500), data2(8000:8500));
+[~, max_idx] = max(cross_corr);
+time_delay = 1000*(max_idx-1)/samp_rate;

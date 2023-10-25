@@ -78,7 +78,7 @@ class qpsk(gr.top_block):
             taps=[1],
             noise_seed=0,
             block_tags=False)
-        self.blocks_vector_source_x_0 = blocks.vector_source_b([240, 240, 240, 15, 15, 15, 240, 240, 240, ] + [10, 31, 66, 10, 35, 92, 10, 29, 43, ] + [15, 15, 15, 240, 240, 240, 15, 15, 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], False, 1, [])
+        self.blocks_vector_source_x_0 = blocks.vector_source_b([240, 240, 240, 15, 15, 15, 240, 240, 240, ] + [10,29,43,10, 31, 66, 10, 35, 92, ] + [15, 15, 15, 240, 240, 240, 15, 15, 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], False, 1, [])
         self.blocks_throttle_0 = blocks.throttle(gr.sizeof_gr_complex*1, samp_rate,True)
         self.blocks_pack_k_bits_bb_0 = blocks.pack_k_bits_bb(8)
         self.blocks_interleave_0 = blocks.interleave(gr.sizeof_char*1, 1)

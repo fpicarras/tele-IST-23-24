@@ -9,9 +9,9 @@ options:
     description: ''
     gen_cmake: 'On'
     gen_linking: dynamic
-    generate_options: no_gui
+    generate_options: qt_gui
     hier_block_src_path: '.:'
-    id: qpsk
+    id: qpsk_out
     max_nouts: '0'
     output_language: python
     placement: (0,0)
@@ -39,7 +39,7 @@ blocks:
     comment: ''
     const_points: '[-1-1j, -1+1j, 1-1j, 1+1j]'
     dims: '1'
-    normalization: digital.constellation.NO_NORMALIZATION
+    normalization: digital.constellation.AMPLITUDE_NORMALIZATION
     precision: '8'
     rot_sym: '2'
     soft_dec_lut: None
@@ -61,14 +61,14 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [672, 12.0]
+    coordinate: [696, 12.0]
     rotation: 0
     state: true
 - name: noise
   id: variable
   parameters:
     comment: ''
-    value: '0'
+    value: '0.5'
   states:
     bus_sink: false
     bus_source: false
@@ -171,7 +171,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [280, 108.0]
+    coordinate: [448, 116.0]
     rotation: 0
     state: true
 - name: blocks_file_sink_1
@@ -243,7 +243,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [528, 220.0]
+    coordinate: [696, 228.0]
     rotation: 0
     state: true
 - name: blocks_vector_source_x_0
@@ -254,18 +254,18 @@ blocks:
     comment: ''
     maxoutbuf: '0'
     minoutbuf: '0'
-    repeat: 'False'
+    repeat: 'True'
     tags: '[]'
     type: byte
-    vector: '[240, 240, 240, 15, 15, 15, 240, 240, 240, ] + [10, 31, 66, 10, 35, 92,
-      10, 29, 43, ] + [15, 15, 15, 240, 240, 240, 15, 15, 15, 0, 0, 0, 0, 0, 0, 0,
+    vector: '[240, 240, 240, 15, 15, 15, 240, 240, 240, ] + [10,29,43,10, 31, 66,
+      10, 35, 92, ] + [15, 15, 15, 240, 240, 240, 15, 15, 15, 0, 0, 0, 0, 0, 0, 0,
       0, 0, 0, 0, 0, 0, 0, 0, 0]'
     vlen: '1'
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [104, 204.0]
+    coordinate: [216, 212.0]
     rotation: 0
     state: true
 - name: channels_channel_model_0
@@ -338,7 +338,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [280, 196.0]
+    coordinate: [448, 204.0]
     rotation: 0
     state: true
 - name: digital_symbol_sync_xx_0
@@ -386,7 +386,7 @@ blocks:
     bus_structure: null
     coordinate: [536, 564.0]
     rotation: 0
-    state: true
+    state: enabled
 - name: qtgui_sink_x_0
   id: qtgui_sink_x
   parameters:
@@ -413,9 +413,9 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [528, 284.0]
+    coordinate: [1136, 356.0]
     rotation: 0
-    state: disabled
+    state: enabled
 - name: qtgui_time_sink_x_0
   id: qtgui_time_sink_x
   parameters:
@@ -510,9 +510,9 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [736, 108.0]
+    coordinate: [880, 116.0]
     rotation: 0
-    state: disabled
+    state: enabled
 - name: virtual_sink_0
   id: virtual_sink
   parameters:
@@ -523,7 +523,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [736, 220.0]
+    coordinate: [904, 228.0]
     rotation: 0
     state: true
 - name: virtual_source_0
@@ -553,9 +553,9 @@ connections:
 - [digital_binary_slicer_fb_0, '0', blocks_interleave_0, '0']
 - [digital_binary_slicer_fb_0_0, '0', blocks_interleave_0, '1']
 - [digital_constellation_modulator_0, '0', blocks_throttle_0, '0']
-- [digital_constellation_modulator_0, '0', qtgui_sink_x_0, '0']
 - [digital_symbol_sync_xx_0, '0', blocks_complex_to_imag_0, '0']
 - [digital_symbol_sync_xx_0, '0', blocks_complex_to_real_0, '0']
+- [digital_symbol_sync_xx_0, '0', qtgui_sink_x_0, '0']
 - [fir_filter_xxx_0, '0', digital_symbol_sync_xx_0, '0']
 - [virtual_source_0, '0', channels_channel_model_0, '0']
 

@@ -21,14 +21,16 @@ from argparse import ArgumentParser
 from gnuradio.eng_arg import eng_float, intx
 from gnuradio import eng_notation
 
+## New Imports ##
 import verificador as Ver
 import numpy as np
 import csv
+## ########### ##
 
 
 
 class bpsk(gr.top_block):
-
+    #Change the initialization to recieve: noise, loopB
     def __init__(self, noise, loopB):
         gr.top_block.__init__(self, "BPSK_mod", catch_exceptions=True)
 

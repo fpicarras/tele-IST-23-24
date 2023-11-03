@@ -9,9 +9,9 @@ options:
     description: ''
     gen_cmake: 'On'
     gen_linking: dynamic
-    generate_options: no_gui
+    generate_options: qt_gui
     hier_block_src_path: '.:'
-    id: bpsk
+    id: bpsk_out
     max_nouts: '0'
     output_language: python
     placement: (0,0)
@@ -49,7 +49,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [96, 364.0]
+    coordinate: [104, 300.0]
     rotation: 0
     state: true
 - name: loopB
@@ -137,8 +137,8 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1088.0, 600]
-    rotation: 270
+    coordinate: [1112, 632.0]
+    rotation: 0
     state: true
 - name: blocks_file_sink_0
   id: blocks_file_sink
@@ -155,7 +155,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [280, 108.0]
+    coordinate: [368, 116.0]
     rotation: 0
     state: true
 - name: blocks_file_sink_1
@@ -173,7 +173,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1312, 484.0]
+    coordinate: [1336, 556.0]
     rotation: 0
     state: true
 - name: blocks_pack_k_bits_bb_0
@@ -189,7 +189,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1160, 500.0]
+    coordinate: [1152, 532.0]
     rotation: 0
     state: true
 - name: blocks_throttle_0
@@ -208,7 +208,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [528, 220.0]
+    coordinate: [584, 220.0]
     rotation: 0
     state: true
 - name: blocks_vector_source_x_0
@@ -219,12 +219,12 @@ blocks:
     comment: ''
     maxoutbuf: '0'
     minoutbuf: '0'
-    repeat: 'False'
+    repeat: 'True'
     tags: '[]'
     type: byte
-    vector: '[240, 240, 240, 15, 15, 15, 240, 240, 240, ] + [10, 31, 66, 10, 35, 92,
-      10, 29, 43, ] + [15, 15, 15, 240, 240, 240, 15, 15, 15, 0, 0, 0, 0, 0, 0, 0,
-      0]'
+    vector: '[240, 240, 240, 15, 15, 15, 240, 240, 240, ] + [10,29,43,10, 31, 66,
+      10, 35, 92, ] + [15, 15, 15, 240, 240, 240, 15, 15, 15, 0, 0, 0, 0, 0, 0, 0,
+      0, 0, 0, 0, 0, 0, 0, 0, 0]'
     vlen: '1'
   states:
     bus_sink: false
@@ -266,8 +266,8 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1136.0, 608]
-    rotation: 90
+    coordinate: [1176, 592.0]
+    rotation: 180
     state: true
 - name: digital_constellation_modulator_0
   id: digital_constellation_modulator
@@ -288,7 +288,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [280, 196.0]
+    coordinate: [336, 196.0]
     rotation: 0
     state: true
 - name: digital_symbol_sync_xx_0
@@ -336,7 +336,7 @@ blocks:
     bus_structure: null
     coordinate: [536, 564.0]
     rotation: 0
-    state: true
+    state: enabled
 - name: qtgui_sink_x_0
   id: qtgui_sink_x
   parameters:
@@ -363,9 +363,9 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [528, 284.0]
+    coordinate: [1120, 380.0]
     rotation: 0
-    state: disabled
+    state: enabled
 - name: qtgui_time_sink_x_0
   id: qtgui_time_sink_x
   parameters:
@@ -460,9 +460,9 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [736, 108.0]
+    coordinate: [768, 108.0]
     rotation: 0
-    state: disabled
+    state: enabled
 - name: virtual_sink_0
   id: virtual_sink
   parameters:
@@ -473,7 +473,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [736, 220.0]
+    coordinate: [792, 220.0]
     rotation: 0
     state: true
 - name: virtual_source_0
@@ -500,8 +500,8 @@ connections:
 - [channels_channel_model_0, '0', fir_filter_xxx_0, '0']
 - [digital_binary_slicer_fb_0, '0', blocks_pack_k_bits_bb_0, '0']
 - [digital_constellation_modulator_0, '0', blocks_throttle_0, '0']
-- [digital_constellation_modulator_0, '0', qtgui_sink_x_0, '0']
 - [digital_symbol_sync_xx_0, '0', blocks_complex_to_real_0, '0']
+- [digital_symbol_sync_xx_0, '0', qtgui_sink_x_0, '0']
 - [fir_filter_xxx_0, '0', digital_symbol_sync_xx_0, '0']
 - [virtual_source_0, '0', channels_channel_model_0, '0']
 

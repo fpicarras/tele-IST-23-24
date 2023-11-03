@@ -42,7 +42,7 @@ def runQPSK():
     sentBITS = readBin(fileIN)
 
     #Get the recieved binary data
-        #We remove the first 49 values because those will be just garbage in the 'Symbol Sink' buffer
+        #We remove the first 98 values because those will be just garbage in the 'Symbol Sink' buffer
     recievedBITS = readBin(fileOUT)[98:]
 
     #Prints the amount of bits that differ in the sent and revieved data
